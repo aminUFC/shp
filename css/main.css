@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,600');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	background-color: #d8e8e5;
+}
+
+#app > nav {
+	background: white;
+	position: relative;
+	height: 40px;
+	padding: 0 40px;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+
+#app > nav ul.main-menu li {
+	display: block;
+	float: left;
+	padding: 10px;
+}
+#app > nav ul.main-menu li a {
+	text-decoration: none;
+	color: #333;
+	display: block;
+	float: left;
+}
+#app > nav ul.main-menu li a:hover {
+	text-decoration: underline;
+}
+
+#app > nav #sub-menu {
+	position: absolute;
+	left: 0;
+	top: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	width: 100%;
+	height: calc(100vh - 40px);
+}
+#app > nav #sub-menu #menu-wrapper {
+	width: calc(100% - 80px);
+	background: white;
+	margin: 0 auto;
+	border-radius: 0 0 5px 5px;
+	display: flex;
+}
+#app > nav #sub-menu #menu-wrapper .menu-column {
+	flex: 1;
+	box-sizing: border-box;
+}
+
+.menu-column ul li {
+	padding: 8px 10px;
+}
+.menu-column ul li:not(:last-child) {
+	border-bottom: 1px solid #f1f1f1;
+}
+
+#sub-menu {
+	display: none;
+}
+
+.hidden-menu {
+	display: none;
+}
+.hidden-menu.visible {
+	display: block;
+}
+
+.hidden-menu > b {
+	padding: 8px 10px;
+	color: #333;
+}
+
+#container {
+	padding: 20px 0;
+	width: 80%;
+	margin: 0 auto;
+}
+
+/* 
+.shop {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+
+	margin: 0;
+}
+.shop > a {
+	border: rgb(255, 255, 255) solid 2px;
+	background-color: rgb(255, 255, 255);
+	padding: 8px 14px;
+}
+
+.shop > a::before {
+	content: '';
+	display: none;
+	border: green solid 2px;
+}
+.shop > a::after {
+	content: '^';
+	color: green;
+}
+.shop > a:hover::after {
+	content: 'v';
+}
+.shop > a:hover::before {
+	display: block;
+}
+.shop > a:hover {
+	text-decoration: underline;
+}
+.shop > a:target .cont {
+	border: 50px solid black;
+}
+
+.container {
+	background-color: white;
+	position: absolute;
+	height: 70%;
+	border: rgba(151, 97, 97, 0.4) solid 1px;
+	width: 70%;
+	left: 40%;
+	transform: translateX(-35%);
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+}
+a {
+	color: black;
+	padding: 5px;
+}
+li {
+	width: 30%;
+	margin-left: 12px;
+
+	text-align: left;
+}
+.submenu {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 31.5%;
+	width: 70%;
+	height: 100%;
+
+}
+.submenu2 {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 48%;
+	height: 100%;
+
+}
+.submenu li {
+	width: 48%;
+}
+.submenu2 li {
+	width: 96%;
+}
+li:hover .submenu {
+	display: block;
+	transition: display 0.3s;
+}
+
+.cont li:hover {
+	background: rgba(106, 236, 106, 0.2);
+	transition: background 0.3s;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.limenu2:hover .submenu2 {
+	display: block;
+	transition: display 0.3s;
+}
+.menu::after {
+	content: '>';
+	height: 14px;
+	width: 14px;
+	color: black;
+	position: absolute;
+	left: 30%;
+}
+.limenu2::after {
+	content: '>';
+	height: 14px;
+	width: 14px;
+	color: black;
+	position: absolute;
+	left: 48%;
+}
+li:hover .menu,
+.limenu2:hover > a,
+.cont a:hover {
+	text-decoration: underline;
+}
+.limenu,
+.limenu2 {
+	border-right: rgb(92, 90, 90) 1px dotted;
+} */

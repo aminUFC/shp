@@ -1,0 +1,158 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+
+    <div id="app">
+        <nav>
+            <ul class="main-menu">
+                <li class="has-child" data-menu="SHOP"><a href='#'>Shop</a></li>
+                <li><a href='#'>Blog</a></li>
+                <li><a href='#'>Resources</a></li>
+                <li><a href='#'>Contact Us</a></li>
+            </ul>
+            <div id="sub-menu">
+                <div id="menu-wrapper">
+                    <div class="menu-column" data-col="1">
+                        <div class="hidden-menu" data-parent="SHOP">
+                            <b>Title</b>
+                            <ul>
+                                <li class="has-child" data-menu="MT"><a href="#">Medicines & treatments</a></li>
+                                <li class="has-child" data-menu="VS"><a href="#">Vitamins & supplements</a></li>
+                                <li class="limenu"><a href="#" class="menu">About</a></li>
+                                <li class="limenu"><a href="#" class="menu">Play</a></li>
+                                <li class="limenu"><a href="#" class="menu">Read</a></li>
+                                <li class="limenu"><a href="#" class="menu">facerood</a></li>
+                                <li class="limenu"><a href="#" class="menu">tiuhook</a></li>
+                                <li class="limenu"><a href="#" class="menu">React</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="menu-column" data-col="2">
+                        <div class="hidden-menu" data-parent="MT">
+                            <b>Medicines & treatments</b>
+                            <ul>
+                                <li class="has-child" data-menu="MT-PR"><a href="#">Pain relief</a></li>
+                                <li><a href="#">Allergy & hay fever</a></li>
+                                <li><a href="#">Skin conditions</a></li>
+                                <li><a href="#">Cough, cold & flu</a></li>
+                                <li><a href="#">Children's medicines</a></li>
+                                <li><a href="#">Stomach & bowel</a></li>
+                            </ul>
+                        </div>
+                        <div class="hidden-menu" data-parent="VS">
+                            <b>Vitamins & supplements</b>
+                            <ul>
+                                <li><a href="#">Link 1</a></li>
+                                <li><a href="#">Link 2</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="menu-column" data-col="3">
+                        <div class="hidden-menu" data-parent="MT-PR">
+                            <b>Pain relief</b>
+                            <ul>
+                                <li><a href="#">Link 1</a></li>
+                                <li><a href="#">Link 2</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- page content -->
+        <div id="container">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ducimus maxime soluta earum dolorem enim
+                possimus, voluptatum molestiae quibusdam, sit ab odit illum nobis quaerat officia. Tempora labore vel
+                minima?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ducimus maxime soluta earum dolorem enim
+                possimus, voluptatum molestiae quibusdam, sit ab odit illum nobis quaerat officia. Tempora labore vel
+                minima?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ducimus maxime soluta earum dolorem enim
+                possimus, voluptatum molestiae quibusdam, sit ab odit illum nobis quaerat officia. Tempora labore vel
+                minima?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ducimus maxime soluta earum dolorem enim
+                possimus, voluptatum molestiae quibusdam, sit ab odit illum nobis quaerat officia. Tempora labore vel
+                minima?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ducimus maxime soluta earum dolorem enim
+                possimus, voluptatum molestiae quibusdam, sit ab odit illum nobis quaerat officia. Tempora labore vel
+                minima?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ducimus maxime soluta earum dolorem enim
+                possimus, voluptatum molestiae quibusdam, sit ab odit illum nobis quaerat officia. Tempora labore vel
+                minima?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ducimus maxime soluta earum dolorem enim
+                possimus, voluptatum molestiae quibusdam, sit ab odit illum nobis quaerat officia. Tempora labore vel
+                minima?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ducimus maxime soluta earum dolorem enim
+                possimus, voluptatum molestiae quibusdam, sit ab odit illum nobis quaerat officia. Tempora labore vel
+                minima?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ducimus maxime soluta earum dolorem enim
+                possimus, voluptatum molestiae quibusdam, sit ab odit illum nobis quaerat officia. Tempora labore vel
+                minima?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi ducimus maxime soluta earum dolorem enim
+                possimus, voluptatum molestiae quibusdam, sit ab odit illum nobis quaerat officia. Tempora labore vel
+                minima?</p>
+        </div>
+    </div>
+    <script>
+        const menuItems = document.querySelectorAll(".has-child");
+        const subMenu = document.getElementById('sub-menu')
+        const wrapper = document.getElementById('menu-wrapper')
+
+        menuItems.forEach(item => {
+            const child = document.querySelector(`.hidden-menu[data-parent="${item.getAttribute('data-menu')}"]`)
+            item.addEventListener('mouseenter', handleMouseEnter(child))
+            item.addEventListener('mouseleave', handleMouseLeave({ item, child }))
+            wrapper.addEventListener('mouseleave', handleMouseLeave({ item, child }))
+        })
+
+        function handleMouseEnter(child) {
+            return event => {
+                //hide all menus on the column
+                const column = child.parentElement.getAttribute('data-col')
+                if (column) {
+                    document.querySelectorAll(`.menu-column[data-col="${column}"] .hidden-menu`).forEach(m => hideMenu(m))
+                }
+                child.classList.add('visible')
+                subMenu.style.display = 'block';
+                console.log(child.classList)
+            }
+        }
+
+        function handleMouseLeave({ item, child }) {
+            return event => {
+                console.log({ wrapper, t: event.relatedTarget })
+                const visible = wrapper.contains(event.relatedTarget) && item.contains(event.relatedTarget) || child.contains(event.relatedTarget) || event.relatedTarget === child
+                if (!visible) hideMenu(child)
+            }
+        }
+
+        function hideMenu(child) {
+            console.log("hideMenu invoked")
+            //check if item has a child
+            const children = child.querySelectorAll('[data-menu]')
+            child.classList.remove("visible")
+            if (children.length) {
+                children.forEach(child => {
+                    const childOfChild = document.querySelector(`.hidden-menu[data-parent="${child.getAttribute('data-menu')}"]`)
+                    hideMenu(childOfChild)
+                })
+            }
+            if (!wrapper.querySelectorAll('.hidden-menu.visible').length) {
+                subMenu.style.display = 'none'
+            }
+        }
+    </script>
+</body>
+
+</html>
